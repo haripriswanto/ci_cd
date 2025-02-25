@@ -2,7 +2,7 @@ name: Deploy Laravel Application to Production Server
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   deploy:
@@ -38,7 +38,7 @@ jobs:
           SOURCE: "."
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
-          TARGET: "/var/www/html/github-actions"
+          TARGET: "/var/www/html/ci_cd"
 
       - name: Run Remote/Artisan Commands
         uses: appleboy/ssh-action@v0.1.6
@@ -47,6 +47,6 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/html/github-actions
+            cd /var/www/html/ci_cd
             php artisan migrate --force
             php artisan optimize
