@@ -75,7 +75,6 @@ jobs:
             cd /var/www/html/laravel_project  # Sesuaikan dengan path project di server
             git pull origin dev
             composer install --no-dev --no-interaction --prefer-dist
-            php artisan migrate --force
             php artisan config:clear
             php artisan cache:clear
             php artisan view:clear
