@@ -72,7 +72,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd /var/www/html/laravel_project  # Sesuaikan dengan path project di server
+            cd /var/www/html/ci_cd  # Sesuaikan dengan path project di server
             git pull origin dev
             composer install --no-dev --no-interaction --prefer-dist
             php artisan config:clear
