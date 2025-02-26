@@ -71,12 +71,12 @@ jobs:
     needs: laravel-tests
     runs-on: ubuntu-latest
     steps:
-      - name: Setup SSH Key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+      # - name: Setup SSH Key
+      # run: |
+      #   mkdir -p ~/.ssh
+      #   echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+      #   chmod 600 ~/.ssh/id_rsa
+      #   ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Debug SSH Connection
         run: ssh -vvv -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} exit
