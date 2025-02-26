@@ -1,4 +1,4 @@
-name: Laravel CI/CD Test
+name: Laravel CI/CD Tests
 
 on:
   push:
