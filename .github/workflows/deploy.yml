@@ -44,21 +44,21 @@ jobs:
       - name: Set Up Database
         env:
           DB_CONNECTION: pgsql
-          DB_HOST: 127.0.0.1
+          DB_HOST: 103.181.142.20
           DB_PORT: 5432
           DB_DATABASE: laravel_test
           DB_USERNAME: postgres
-          DB_PASSWORD: postgres
+          DB_PASSWORD: kp3_admin291
         run: php artisan migrate --force
 
       - name: Run Tests
         env:
           DB_CONNECTION: pgsql
-          DB_HOST: 127.0.0.1
+          DB_HOST: 103.181.142.20
           DB_PORT: 5432
           DB_DATABASE: laravel_test
           DB_USERNAME: postgres
-          DB_PASSWORD: postgres
+          DB_PASSWORD: kp3_admin291
         run: php artisan test
 
   deploy:
